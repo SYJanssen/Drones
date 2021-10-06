@@ -18,28 +18,24 @@ classdef Drone < handle
             space.Locs(drone.Name, time, 1) = space.Locs(drone.Name, time - 1, 1) + movement(1);
             space.Locs(drone.Name, time, 2) = space.Locs(drone.Name, time - 1, 2) + movement(2);
             space.Locs(drone.Name, time, 3) = space.Locs(drone.Name, time - 1, 3) + movement(3);
-            update(drone, movement);
+            drone.Position(1) = drone.Position(1) + movement(1);
+            drone.Position(2) = drone.Position(2) + movement(2);
+            drone.Position(3) = drone.Position(3) + movement(3); 
         end
-            
-         function update(drone, movement)
-             drone.Position(1) = drone.Position(1) + movement(1);
-             drone.Position(2) = drone.Position(2) + movement(2);
-             drone.Position(3) = drone.Position(3) + movement(3);           
-         end
-         
-         function [difference] = target_difference(drone)
+                     
+        function [difference] = target_difference(drone)
              difference = [abs(drone.Position(1) - drone.Target(1))
                            abs(drone.Position(2) - drone.Target(2))
                            abs(drone.Position(3) - drone.Target(3))];
-         end
+        end
          
-         function target_reached(drone)
+        function target_reached(drone)
             if abs(drone.Position(1) - drone.Target(1)) | abs(drone.Position(2) - drone.Target(2)) | abs(drone.Position(3) - drone.Target(3)) > .001
                 "Not yet there"
             else
                 "There"
             end
-         end
+        end
     end
 end    
 
