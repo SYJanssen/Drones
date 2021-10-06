@@ -14,13 +14,14 @@ classdef Drone < handle
     end
     
     methods
-        function movement(drone, space, movement, time)
-            space.Locs(drone.Name, time, 1) = space.Locs(drone.Name, time - 1, 1) + movement(1);
-            space.Locs(drone.Name, time, 2) = space.Locs(drone.Name, time - 1, 2) + movement(2);
-            space.Locs(drone.Name, time, 3) = space.Locs(drone.Name, time - 1, 3) + movement(3);
-            drone.Position(1) = drone.Position(1) + movement(1);
-            drone.Position(2) = drone.Position(2) + movement(2);
-            drone.Position(3) = drone.Position(3) + movement(3); 
+        function move(drone, space, movement)
+            space.Locs(drone.Name, time + 1, 1) = space.Locs(drone.Name, time, 1) + movement(1);
+            space.Locs(drone.Name, time + 1, 2) = space.Locs(drone.Name, time, 2) + movement(2);
+            space.Locs(drone.Name, time + 1, 3) = space.Locs(drone.Name, time, 3) + movement(3);
+            drone.Position(1)                   = drone.Position(1)               + movement(1);
+            drone.Position(2)                   = drone.Position(2)               + movement(2);
+            drone.Position(3)                   = drone.Position(3)               + movement(3); 
+
         end
                      
         function [difference] = target_difference(drone)

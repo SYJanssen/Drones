@@ -32,3 +32,4 @@ for droneName = 1:AoD
 end
 
 vierkant(start,space)
+drones.move(space, [1,1,1])

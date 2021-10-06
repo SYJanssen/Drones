@@ -1,10 +1,10 @@
 classdef Space < handle    
     properties
-        Center = [0 0 0];
+        Center = [0 0 0];  
         DroneCount;
         DroneTargets;
         MaxDistance;
-        MaxHeight; 
+        MaxHeight;
         MaxTime;
         Locs;
         Pattern;
