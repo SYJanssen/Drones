@@ -4,6 +4,7 @@ classdef Space < handle
         DroneCount;
         DroneTargets;
         MaxDistance;
+        MaxHeight; 
         MaxTime;
         Locs;
         Pattern;
